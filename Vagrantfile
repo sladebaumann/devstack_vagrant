@@ -12,8 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "box-cutter/ubuntu1404-desktop"
   config.vm.box_check_update = false
-  config.vm.provision "shell", path: "setup_devstack.sh"
-  
+  config.vm.provision :shell, path: "setup_devstack.sh"
+  config.vm.provision :shell, path: "bootstrap.sh"
+ 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
   config.ssh.forward_agent = true
